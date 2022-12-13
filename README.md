@@ -69,9 +69,9 @@ Install:
 
 ## Usage
 
-**Upload**: The tab is used to upload CSV files with drag and drop support. Additionally, CSV preview and edit are available within this interface before uploading to the database 
+**Upload**: The tab is used to upload CSV files with drag-and-drop support. Additionally, CSV preview and edit are available within this interface before uploading to the database.
 
-**Table**: The tab is used to display uploaded data according to the posted date. Users can delete the table or export the table from this tab.
+**Table**: The tab displays uploaded data according to the posted date. Users can delete the table or export the table from this tab.
 
 **Dashboard**: This tab displays three charts according to the NRI challenge.
 
