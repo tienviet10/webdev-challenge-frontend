@@ -18,10 +18,6 @@
   <a href="#todo">TODO</a>
 </p>
 
-<div align="center">
-  <a href=""><img src="https://user-images.githubusercontent.com/70352144/191378535-68036f59-8a9a-4d27-b4a0-165614571996.gif" alt="Application" ></a>
-</div>
-
 ## Tech Stack & Features
 
 * React.js
