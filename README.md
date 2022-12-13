@@ -1,70 +1,86 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+  <br>
+  <a href="https://nri-challenge.netlify.app"><img src="https://user-images.githubusercontent.com/70352144/207425372-29b575f3-2ddf-4929-bde5-40c1ca08a648.png" alt="NRI Challenge" width="200"></a>
+  <br>
+  NRI Challenge
+  <br>
+</h1>
 
-## Available Scripts
+<h4 align="center">This frontend application is written in <a href="https://reactjs.org/">React.js</a> and deployed automatically on merges to master via Netlify. The backend, made in Node.js (<a href="https://expressjs.com/">Express.js</a>), can be accessed at this <a href="https://github.com/tienviet10/webdev-challenge">link.</a></h4>
 
-In the project directory, you can run:
+<p align="center">
+  <a href="#key-features">Tech Stack & Features</a> •
+  <a href="#how-to-use">How To Use</a> •
+  <a href="#building">Building</a> •
+  <a href="#development">Development</a> •
+  <a href="#usage">Usage</a> •
+  <a href="#todo">TODO</a>
+</p>
 
-### `npm start`
+<div align="center">
+  <a href=""><img src="https://user-images.githubusercontent.com/70352144/191378535-68036f59-8a9a-4d27-b4a0-165614571996.gif" alt="Application" ></a>
+</div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Tech Stack & Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* React.js
+* [Ant Design](https://ant.design/) for design/styling
+* [Axios](https://axios-http.com/) for handling API request
+* [Papa Parse](https://www.papaparse.com/) for parsing CSV files
+* [React ChartJS](https://react-chartjs-2.js.org/) for charts
+* [React CSV](https://react-chartjs-2.js.org/) for exporting table into CSV file
 
-### `npm test`
+## How To Use
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
-### `npm run build`
+1. Clone the repository
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+$ git clone https://github.com/tienviet10/webdev-challenge-frontend.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Move to the correct directory
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```sh
+$ cd webdev-challenge-frontend
+```
 
-### `npm run eject`
+3. Install dependencies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```sh
+$ npm install
+```
+4. Fill out all variables in .env file.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+5. Run the application
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```sh
+$ npm start
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Building
 
-## Learn More
+Run 'npm run build' and use the newly created 'build' folder for deployment.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Install:
+- Prettier
+- ESLint
+- Enable "format on save"
 
-### Code Splitting
+## Usage
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Upload**: The tab is used to upload CSV files with drag and drop support. Additionally, CSV preview and edit are available within this interface before uploading to the database 
 
-### Analyzing the Bundle Size
+**Table**: The tab is used to display uploaded data according to the posted date. Users can delete the table or export the table from this tab.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Dashboard**: This tab displays three charts according to the NRI challenge.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## TODO
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Edit table live in the Table tab
+* Add sorting and searching for the Table tab
