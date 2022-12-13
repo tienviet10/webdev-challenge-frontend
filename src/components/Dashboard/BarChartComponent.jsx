@@ -55,8 +55,8 @@ const BarChartComponent = ({ perDayData, loading }) => {
       ) : (
         <Result
           status="404"
-          title="No Table"
-          subTitle="Sorry, no data to display!"
+          title="No Chart"
+          subTitle="Please upload data using the Upload tab!"
         />
       )}
     </div>

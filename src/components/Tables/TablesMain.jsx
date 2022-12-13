@@ -66,7 +66,7 @@ const TablesMain = ({
           <Result
             status="404"
             title="No Table"
-            subTitle="Sorry, no data to display!"
+            subTitle="please upload data using the Upload tab!"
           />
         )}
       </div>
