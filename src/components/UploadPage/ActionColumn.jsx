@@ -1,12 +1,6 @@
 import { Button, Popconfirm, Space } from "antd";
 import React from "react";
 
-const styles = {
-  buttonStyle: {
-    marginRight: 8,
-  },
-};
-
 const ActionColumn = ({
   record,
   editable,
@@ -17,21 +11,19 @@ const ActionColumn = ({
 }) => {
   return (
     <Space>
-      <Popconfirm
-        title="Do you want to delete the row?"
-        onConfirm={() => handleDelete(record)}
-      >
-        <Button danger type="primary" disabled={editable}>
-          Delete
-        </Button>
-      </Popconfirm>
+      {!editable && (
+        <Popconfirm
+          title="Do you want to delete the row?"
+          onConfirm={() => handleDelete(record)}
+        >
+          <Button danger type="primary">
+            Delete
+          </Button>
+        </Popconfirm>
+      )}
       {editable ? (
-        <Space size="middle">
-          <Button
-            onClick={() => save(record.key)}
-            type="primary"
-            style={styles.buttonStyle}
-          >
+        <Space size="small">
+          <Button onClick={() => save(record.key)} type="primary">
             Save
           </Button>
           <Popconfirm title="Do you want to cancel?" onConfirm={cancel}>

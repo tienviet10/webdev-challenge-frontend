@@ -39,7 +39,7 @@ const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
       result = parse(text, { header: true });
 
       newFormattedData = result.data.map((item, index) => {
-        let uniqueId = makeid(40);
+        const uniqueId = makeid(40);
         return {
           category: item["category"],
           date: item["date"],
@@ -141,7 +141,7 @@ const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
 
       // Parse the columns into appropriate names
       newFormattedData = result.data.slice(1).map((item, index) => {
-        let uniqueId = makeid(40);
+        const uniqueId = makeid(50);
         return {
           category: item[cat],
           date: item[dat],
