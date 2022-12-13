@@ -4,10 +4,21 @@ import { parse } from "papaparse";
 import { useState } from "react";
 import { API, getCurrentDate } from "../shared";
 
+function makeid(length) {
+  var result = "";
+  var characters =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  var charactersLength = characters.length;
+  for (var i = 0; i < length; i++) {
+    result += characters.charAt(Math.floor(Math.random() * charactersLength));
+  }
+  return result;
+}
+
 const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
   const [fileList, setFileList] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [todayDate, currentTime] = getCurrentDate();
+  const todayDate = getCurrentDate();
 
   // Upload CSV but don't post to backend right away
   const beforeUpload = async (file) => {
@@ -26,7 +37,9 @@ const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
       substringTitle.includes("pre-tax amount")
     ) {
       result = parse(text, { header: true });
+
       newFormattedData = result.data.map((item, index) => {
+        let uniqueId = makeid(40);
         return {
           category: item["category"],
           date: item["date"],
@@ -37,8 +50,8 @@ const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
           taxname: item["tax name"],
           taxamount: item["tax amount"],
           posteddate: todayDate,
-          key: todayDate.replaceAll("/", "") + currentTime + index,
-          id: todayDate.replaceAll("/", "") + currentTime + index,
+          key: uniqueId,
+          id: uniqueId,
         };
       });
 
@@ -128,6 +141,7 @@ const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
 
       // Parse the columns into appropriate names
       newFormattedData = result.data.slice(1).map((item, index) => {
+        let uniqueId = makeid(40);
         return {
           category: item[cat],
           date: item[dat],
@@ -138,8 +152,8 @@ const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
           taxname: taxname !== -1 ? item[taxname] : "",
           taxamount: taxamount !== -1 ? item[taxamount] : null,
           posteddate: todayDate,
-          key: todayDate.replaceAll("/", "") + currentTime + index,
-          id: todayDate.replaceAll("/", "") + currentTime + index,
+          key: uniqueId,
+          id: uniqueId,
         };
       });
     }

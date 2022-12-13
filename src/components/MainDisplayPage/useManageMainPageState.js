@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 import { API, getCurrentDate } from "../shared";
 
 export function useManageMainPageState() {
-  const [todayDate] = getCurrentDate();
+  const todayDate = getCurrentDate();
   const [dataAccordingToDate, setDataAccordingToDate] = useState([]);
   const [dateDisplay, setDateDisplay] = useState(todayDate);
   const [loading, setLoading] = useState(false);

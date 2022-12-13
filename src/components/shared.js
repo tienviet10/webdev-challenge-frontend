@@ -10,9 +10,8 @@ export function getCurrentDate() {
   const todayDate = `${current.getDate()}/${
     current.getMonth() + 1
   }/${current.getFullYear()}`;
-  const currentTime =
-    current.getHours() + current.getMinutes() + current.getSeconds();
-  return [todayDate, currentTime];
+
+  return todayDate;
 }
 
 // Backend
