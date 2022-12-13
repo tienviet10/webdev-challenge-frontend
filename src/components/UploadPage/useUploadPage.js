@@ -59,7 +59,7 @@ const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
       const regexDate = /\/.*\//;
 
       //Iterate through all rows to check the name of the column
-      for (let i = 0; i < result.data.length; i++) {
+      for (let i = 1; i < result.data.length; i++) {
         for (const [key, value] of Object.entries(result.data[i])) {
           const valueLen = value.length;
           let tempLocUS = value.substring(valueLen - 5, valueLen);
@@ -127,7 +127,7 @@ const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
       }
 
       // Parse the columns into appropriate names
-      newFormattedData = result.data.map((item, index) => {
+      newFormattedData = result.data.slice(1).map((item, index) => {
         return {
           category: item[cat],
           date: item[dat],
