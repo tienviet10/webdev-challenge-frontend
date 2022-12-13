@@ -1,6 +1,6 @@
 import { Table } from "antd";
 import React from "react";
-import { columns } from "../shared";
+import { commonColumns } from "../shared";
 
 const styles = {
   tablesStyle: {
@@ -8,13 +8,13 @@ const styles = {
   },
 };
 
-const TableComponent = ({ data, loading }) => {
+const NoEditableTableComponent = ({ data, loading }) => {
   return (
     <>
       {data.length > 0 && (
         <Table
           loading={loading}
-          columns={columns}
+          columns={commonColumns}
           dataSource={data}
           style={styles.tablesStyle}
         />
@@ -23,4 +23,4 @@ const TableComponent = ({ data, loading }) => {
   );
 };
 
-export default TableComponent;
+export default NoEditableTableComponent;

@@ -1,8 +1,9 @@
-import { Button, Result } from "antd";
+import { Button, Popconfirm, Result, Space } from "antd";
 import React from "react";
+import { CSVLink } from "react-csv";
 import DatepickerComponent from "../SharedComponents/DatepickerComponent";
 import LoadingComponent from "../SharedComponents/LoadingComponent";
-import TableComponent from "../SharedComponents/TableComponent";
+import NoEditableTableComponent from "./NoEditableTableComponent";
 
 const styles = {
   datePickerContainer: {
@@ -12,6 +13,9 @@ const styles = {
   tablesContainerStyle: {
     marginTop: "3rem",
   },
+  exportTextColor: {
+    color: "#fff",
+  },
 };
 
 const TablesMain = ({
@@ -20,7 +24,13 @@ const TablesMain = ({
   todayDate,
   loading,
   dataAccordingToDate,
+  deleteTableAccordingToDate,
 }) => {
+  const dataToDownload = dataAccordingToDate.map((item) => {
+    const { key, id, posteddate, ...rest } = item;
+    return rest;
+  });
+
   return (
     <>
       <div style={styles.datePickerContainer}>
@@ -29,13 +39,29 @@ const TablesMain = ({
           todayDate={todayDate}
           dateDisplay={dateDisplay}
         />
-        <Button type="primary">Update Table</Button>
+        <Space>
+          <Popconfirm
+            title="Do you want to delete the whole table?"
+            onConfirm={() => deleteTableAccordingToDate()}
+          >
+            <Button danger>Delete Table</Button>
+          </Popconfirm>
+          {/* <Button danger>Delete Table</Button> */}
+          <Button type="primary">
+            <CSVLink style={styles.exportTextColor} data={dataToDownload}>
+              Export
+            </CSVLink>
+          </Button>
+        </Space>
       </div>
       <div style={styles.tablesContainerStyle}>
         {loading ? (
           <LoadingComponent />
         ) : dataAccordingToDate.length > 0 ? (
-          <TableComponent data={dataAccordingToDate} loading={loading} />
+          <NoEditableTableComponent
+            data={dataAccordingToDate}
+            loading={loading}
+          />
         ) : (
           <Result
             status="404"

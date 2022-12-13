@@ -21,10 +21,15 @@ const styles = {
   },
 };
 
-const UploadComponent = ({ setData, data }) => {
+const UploadComponent = ({
+  setData,
+  data,
+  concatUploadedDataToCurrentTable,
+}) => {
   const { props, fileList, loading, onSubmitTable, onClear } = useUploadPage(
     setData,
-    data
+    data,
+    concatUploadedDataToCurrentTable
   );
 
   return (

@@ -4,13 +4,13 @@ import { parse } from "papaparse";
 import { useState } from "react";
 import { API, getCurrentDate } from "../shared";
 
-const useUploadPage = (setData, data) => {
+const useUploadPage = (setData, data, concatUploadedDataToCurrentTable) => {
   const [fileList, setFileList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [todayDate, currentTime] = getCurrentDate();
 
   // Upload CSV but don't post to backend right away
   const beforeUpload = async (file) => {
-    const [todayDate, currentTime] = getCurrentDate();
     const text = await file.text();
     const substringTitle = text.substring(0, 87);
     let result;
@@ -38,6 +38,7 @@ const useUploadPage = (setData, data) => {
           taxamount: item["tax amount"],
           posteddate: todayDate,
           key: todayDate.replaceAll("/", "") + currentTime + index,
+          id: todayDate.replaceAll("/", "") + currentTime + index,
         };
       });
 
@@ -138,6 +139,7 @@ const useUploadPage = (setData, data) => {
           taxamount: taxamount !== -1 ? item[taxamount] : null,
           posteddate: todayDate,
           key: todayDate.replaceAll("/", "") + currentTime + index,
+          id: todayDate.replaceAll("/", "") + currentTime + index,
         };
       });
     }
@@ -162,7 +164,6 @@ const useUploadPage = (setData, data) => {
         }
         return file;
       });
-
       setFileList(newFileList);
 
       if (status === "done") {
@@ -180,6 +181,7 @@ const useUploadPage = (setData, data) => {
       await axios.post(`${API}/v1/inventory`, {
         inventory: data,
       });
+      concatUploadedDataToCurrentTable(todayDate, data);
       setData([]);
       setFileList([]);
     } catch (err) {

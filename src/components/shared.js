@@ -34,47 +34,55 @@ export const items = [
   getItem("Upload", "3", <UploadOutlined />),
 ];
 
-// Columns for uploaded tables
-export const columns = [
+//// Columns for uploaded tables
+export const commonColumns = [
   {
     title: "date",
     dataIndex: "date",
     key: "date",
+    editable: true,
   },
   {
     title: "category",
     dataIndex: "category",
     key: "category",
+    editable: true,
   },
   {
     title: "lot title",
     dataIndex: "lottitle",
     key: "lottitle",
+    editable: true,
   },
   {
     title: "lot location",
     key: "lotlocation",
     dataIndex: "lotlocation",
+    editable: true,
   },
   {
     title: "lot condition",
     key: "lotcondition",
     dataIndex: "lotcondition",
+    editable: true,
   },
   {
     title: "pre-tax amount",
     key: "pretaxamount",
     dataIndex: "pretaxamount",
+    editable: true,
   },
   {
     title: "tax name",
     key: "taxname",
     dataIndex: "taxname",
+    editable: true,
   },
   {
     title: "tax amount",
     key: "taxamount",
     dataIndex: "taxamount",
+    editable: true,
   },
 ];
 

@@ -20,8 +20,15 @@ const styles = {
 };
 
 const MainDisplayComponent = ({ openedTab }) => {
-  const { dateDisplay, onChooseDate, todayDate, loading, dataAccordingToDate } =
-    useManageMainPageState();
+  const {
+    dateDisplay,
+    onChooseDate,
+    todayDate,
+    loading,
+    dataAccordingToDate,
+    deleteTableAccordingToDate,
+    concatUploadedDataToCurrentTable,
+  } = useManageMainPageState();
 
   return (
     <Content style={styles.contentBox}>
@@ -45,7 +52,9 @@ const MainDisplayComponent = ({ openedTab }) => {
             dataAccordingToDate={dataAccordingToDate}
           />
         ) : openedTab === "3" ? (
-          <UploadMainPage />
+          <UploadMainPage
+            concatUploadedDataToCurrentTable={concatUploadedDataToCurrentTable}
+          />
         ) : (
           <TablesMain
             dateDisplay={dateDisplay}
@@ -53,6 +62,7 @@ const MainDisplayComponent = ({ openedTab }) => {
             todayDate={todayDate}
             loading={loading}
             dataAccordingToDate={dataAccordingToDate}
+            deleteTableAccordingToDate={deleteTableAccordingToDate}
           />
         )}
       </div>
