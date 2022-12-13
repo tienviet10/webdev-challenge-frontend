@@ -20,7 +20,7 @@
 
 ## Tech Stack & Features
 
-* React.js
+* [React.js](https://reactjs.org/)
 * [Ant Design](https://ant.design/) for design/styling
 * [Axios](https://axios-http.com/) for handling API request
 * [Papa Parse](https://www.papaparse.com/) for parsing CSV files
